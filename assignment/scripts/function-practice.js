@@ -28,6 +28,7 @@ function addNumbers(firstNumber, secondNumber) {
   return firstNumber + secondNumber;
 }
 
+// test - 3
 console.log('Test Values 3 and 4 - should result in 7:', addNumbers(3, 4));
 
 
@@ -36,7 +37,7 @@ console.log('Test Values 3 and 4 - should result in 7:', addNumbers(3, 4));
 function multiplyThree(firstNumber, secondNumber, thirdNumber) {
   return firstNumber * secondNumber * thirdNumber;
 }
-
+ // twst - 4
 console.log('Test Values 2, 3, and 6 - shout result in 36:', multiplyThree(2,3,6));
 
 
@@ -60,7 +61,7 @@ console.log('Test - Pass a negative value of -3 - Should return false', isPositi
 //    array is empty, return `undefined`.
 function getLast(array) {
   let lastItem;
-  console.log('Array in getLast function', array);
+  // console.log('Array in getLast function', array);
   if (array.length === 0) {
     lastItem = undefined;
   } else {
@@ -73,6 +74,7 @@ function getLast(array) {
   
 }
 
+// test - 6
 let testArray = ['Dog', 'Fish', 'Cat', 'Gerbil'];
 console.log('Test - Pass testArray to getLast function. Result should be "Gerbil":', getLast(testArray));
 testArray = [];
@@ -94,6 +96,7 @@ function find(value, array) {
   return found;
 }
 
+// test - 7
 testArray = ['Dog', 'Fish', 'Cat', 'Gerbil'];
 console.log('Test - Pass testArray to find function with "Cat". Result should be true:', find('Cat', testArray));
 console.log('Test - Pass testArray to find function with "Elephant". Result should be false:', find('Elephant', testArray));
@@ -104,17 +107,34 @@ console.log('Test - Pass testArray to find function with "Elephant". Result shou
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
 function isFirstLetter(letter, string) {
-
+  // Alternate code to make function case tolerant
+  // return ((string.charAt(0)).toUpperCase() === letter.toUpperCase()) ? true : false;
+  if ((string.charAt(0)).toUpperCase() === letter.toUpperCase()) {
+    return true;
+  }
+  return false
 }
 
+// test - 8
+const testString = 'The cow jumoed over the moon';
+console.log('Test - Pass char "T" to function with test string.  Result should be true:', isFirstLetter('T', testString));
+console.log('Test - Pass char "N" to function with test string.  Result should be false:', isFirstLetter('N', testString));
+console.log('Test - Pass char "t" to function with test string.  Result should be false:', isFirstLetter('t', testString));
 
 // 9. Function to return the sum of all numbers in an array
 function sumAll(array) {
   let sum = 0;
   // TODO: loop to add items
-
+  for (let num of array) {
+    sum += num;
+  }
   // TODO: return the sum
+  return sum;
 }
+
+// test - 9 
+let numbersArray = [ 6, 0, -1, 42, 8];
+console.log('Test - Pass numberArrat to sumAll function.  Result should be 55:', sumAll(numbersArray));
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
