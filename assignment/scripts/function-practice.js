@@ -5,6 +5,7 @@ console.log('***** Function Practice *****');
 // to test it and display the result
 
 // 1. Function to return 'Hello World!'
+console.log('Problem 1 ---------------');
 function hello() {
   return 'Hello World!';
 }
@@ -14,6 +15,7 @@ console.log('Test - should say "Hello World!"', hello());
 
 // 2. Function to return an personalized hello, using the `name` argument.
 //    for example 'Hello, Jo!', or 'Hello, Stacy!'
+console.log('Problem 2 ---------------');
 function helloName(name) {
   return `Hello, ${name}!`;
 }
@@ -23,6 +25,7 @@ console.log ('Test - should say "Hello, Alvin!":', helloName('Alvin'));
 
 
 // 3. Function to add two numbers together & return the result
+console.log('Problem 3 ---------------');
 function addNumbers(firstNumber, secondNumber) {
   // return firstNumber + secondNumber;
   return firstNumber + secondNumber;
@@ -34,6 +37,7 @@ console.log('Test Values 3 and 4 - should result in 7:', addNumbers(3, 4));
 
 
 // 4. Function to multiply three numbers & return the result
+console.log('Problem 4 ---------------');
 function multiplyThree(firstNumber, secondNumber, thirdNumber) {
   return firstNumber * secondNumber * thirdNumber;
 }
@@ -44,6 +48,7 @@ console.log('Test Values 2, 3, and 6 - shout result in 36:', multiplyThree(2,3,6
 
 // 5. Function that will return true if a number is positive, 
 //    or greater than zero, and false otherwise
+console.log('Problem 5 ---------------');
 function isPositive(number) {
   if (number > 0) {
     return true;
@@ -59,6 +64,7 @@ console.log('Test - Pass a negative value of -3 - Should return false', isPositi
 
 // 6. Function to return the _last_ item in an array. If the 
 //    array is empty, return `undefined`.
+console.log('Problem 6 ---------------');
 function getLast(array) {
   let lastItem;
   // console.log('Array in getLast function', array);
@@ -85,6 +91,7 @@ console.log('Test - Pass empty testArray to getLast function. Result should be u
 // 7. Function to find a value in an array. Return true if the 
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find 
+console.log('Problem 7 ---------------');
 function find(value, array) {
   found = false;
   for (let x of array) {
@@ -106,6 +113,7 @@ console.log('Test - Pass testArray to find function with "Elephant". Result shou
 // ----------------------
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
+console.log('Problem 8 ---------------');
 function isFirstLetter(letter, string) {
   // Alternate code to make function case tolerant
   // return ((string.charAt(0)).toUpperCase() === letter.toUpperCase()) ? true : false;
@@ -122,6 +130,7 @@ console.log('Test - Pass char "N" to function with test string.  Result should b
 console.log('Test - Pass char "t" to function with test string.  Result should be false:', isFirstLetter('t', testString));
 
 // 9. Function to return the sum of all numbers in an array
+console.log('Problem 9 ---------------');
 function sumAll(array) {
   let sum = 0;
   // TODO: loop to add items
@@ -139,6 +148,7 @@ console.log('Test - Pass numberArrat to sumAll function.  Result should be 55:',
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
+console.log('Problem 10 ---------------');
 function allPositive(inputArray) {
   let outputArray = [];
   for (let arrayElement of inputArray) {
@@ -152,18 +162,19 @@ function allPositive(inputArray) {
 // test - 10
 console.log('Testing array against allPositive Function:');
 console.log('inputArray:', numbersArray);
-console.log('After passing through allPositive function (expect 3 positive values (returned array)', allPositive(numbersArray));
-console.log('inputArray after function execution:', numbersArray);
+console.log('After passing through allPositive function (expect 3 positive values) (returned array)', allPositive(numbersArray));
+console.log('inputArray after function execution(expect unchanged):', numbersArray);
 
 console.log('Testing array against allPositive Function with all non-positve array input:');
 numbersArray = [ -6, 0, -1, -42, -8];
 console.log('inputArray:', numbersArray);
 console.log('After passing through allPositive function (expect empty array(returned array)', allPositive(numbersArray));
-console.log('inputArray after function execution:', numbersArray);
+console.log('inputArray after function execution(expect unchanged):', numbersArray);
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
+console.log('Problem 11 ---------------');
 
 /* Product of Digits of Sum
 Create a function that takes one, two or more numbers as arguments and adds them together to get a new number. 
@@ -187,38 +198,36 @@ function sumDigProd () {     // leaving paramaters blank to facilitate dymanic n
   }
   
   // add digits together
- let sum = 0;
- for (x = 0; x < arguments.length; x++) { // obtain sum of arguments
-  console.log('argument:',arguments[x])
-  sum += arguments[x];
-  console.log(sum);
-}
-
-// while sum > 9 (i.e. multiple digits) multiply digits and repeat
-
-//while ( sum > 9 ) {
-  let sumString = (sum.toString()).split('');
-  // console.log(sum.toString(), sumString);
-//}
-
-/*  let product = 1;
-  console.log(arguments);
-
-
-
-  for (x = 0; x < arguments.length; x++){ // obtain product of arguments
-    console.log('argument:',arguments[x])
-    product *= arguments[x];
-    console.log(product);
+  let sum = 0;
+  for (x = 0; x < arguments.length; x++) { // obtain sum of arguments
+    // console.log('argument:',arguments[x])
+    sum += arguments[x];
+    // console.log(sum);
   }
-  console.log ('Local Product:', product); */
 
 
+
+  let product; // intialize product variable
+  let sumString = (sum.toString()).split('');  // set sumString to array containing digits
+  // console.log(sum.toString(), sumString);
+
+  do {                // I want this block to execute at least one time hence the do .. while
+    product = 1;      // reset product to unity
+    for (let x of sumString) { // create product of digits
+      product *= x;
+    }
+    // console.log (product);
+    sumString = (product.toString()).split('');
+    // console.log ('sumString in while', sumString, 'product in while', product);
+  } while (product > 9) // continue loop until product is only 1 digit
+    
+return product;
 
 }
 
-sumDigProd(6, 4, 9);
-console.log(sumDigProd(0));
+console.log('sumDigProd(16, 28):',sumDigProd(16, 28));
+console.log('sumDigProd(0):',sumDigProd(0));
+console.log('sumDigProd(1, 2, 3, 4, 5, 6):', sumDigProd(1, 2, 3, 4, 5, 6));
 
 // DO NOT MODIFY
 // Used for automated testing
