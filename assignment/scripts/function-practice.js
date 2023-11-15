@@ -139,15 +139,86 @@ console.log('Test - Pass numberArrat to sumAll function.  Result should be 55:',
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
-function allPositive() {
-
+function allPositive(inputArray) {
+  let outputArray = [];
+  for (let arrayElement of inputArray) {
+    if (arrayElement > 0) {
+      outputArray.push(arrayElement);
+    }
+  }
+  return outputArray;
 }
 
+// test - 10
+console.log('Testing array against allPositive Function:');
+console.log('inputArray:', numbersArray);
+console.log('After passing through allPositive function (expect 3 positive values (returned array)', allPositive(numbersArray));
+console.log('inputArray after function execution:', numbersArray);
+
+console.log('Testing array against allPositive Function with all non-positve array input:');
+numbersArray = [ -6, 0, -1, -42, -8];
+console.log('inputArray:', numbersArray);
+console.log('After passing through allPositive function (expect empty array(returned array)', allPositive(numbersArray));
+console.log('inputArray after function execution:', numbersArray);
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
 
+/* Product of Digits of Sum
+Create a function that takes one, two or more numbers as arguments and adds them together to get a new number. 
+The function then repeatedly multiplies the digits of the new number by each other, yielding a new number, 
+until the product is only 1 digit long. Return the final product.
+
+Examples
+sumDigProd(16, 28) ➞ 6
+// 16 + 28 = 44
+// 4 * 4 =  16
+// 1 * 6 = 6
+
+sumDigProd(0) ➞ 0
+
+sumDigProd(1, 2, 3, 4, 5, 6) ➞ 2 */
+
+function sumDigProd () {     // leaving paramaters blank to facilitate dymanic number of arguments
+  
+  if ((arguments[0] === 0) && arguments.length === 1) {  // resolve unique case where argument is 0
+    return 0;
+  }
+  
+  // add digits together
+ let sum = 0;
+ for (x = 0; x < arguments.length; x++) { // obtain sum of arguments
+  console.log('argument:',arguments[x])
+  sum += arguments[x];
+  console.log(sum);
+}
+
+// while sum > 9 (i.e. multiple digits) multiply digits and repeat
+
+//while ( sum > 9 ) {
+  let sumString = (sum.toString()).split('');
+  // console.log(sum.toString(), sumString);
+//}
+
+/*  let product = 1;
+  console.log(arguments);
+
+
+
+  for (x = 0; x < arguments.length; x++){ // obtain product of arguments
+    console.log('argument:',arguments[x])
+    product *= arguments[x];
+    console.log(product);
+  }
+  console.log ('Local Product:', product); */
+
+
+
+}
+
+sumDigProd(6, 4, 9);
+console.log(sumDigProd(0));
 
 // DO NOT MODIFY
 // Used for automated testing
